@@ -1,7 +1,7 @@
 import { Input } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { useState } from "react";
-import Scoretable from "../../components/scoretable/scoretable";
+import Scoretable from "../../components/scoretable";
 import "./home.css";
 import { useHistory } from "react-router-dom";
 const Username = () => {

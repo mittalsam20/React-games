@@ -9,9 +9,9 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route path="/" component={Username} exact></Route>
+            <Route path="/aa" component={Username} exact></Route>
             <Route path="/allgames" component={Allgames} exact></Route>
-            <Route path="/whack-a-mole" component={Molestart} exact></Route>
+            <Route path="/" component={Molestart} exact></Route>
           </Switch>
         </div>
       </BrowserRouter>
