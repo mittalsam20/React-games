@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Heading from "../../components/heading";
+import Rightcont from "../../components/rightcont/rightcont";
 import "./molestart.css";
 const Molestart = () => {
   const [difficulty, setDifficulty] = useState("eas");
@@ -26,7 +27,9 @@ const Molestart = () => {
           })}
         </div>
       </div>
-      <div className="mole-settings">rsds</div>
+      <div className="mole-settings">
+        <Rightcont />
+      </div>
     </div>
   );
 };
