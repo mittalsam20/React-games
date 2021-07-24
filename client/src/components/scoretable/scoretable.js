@@ -12,6 +12,9 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  tablecont: {
+    boxShadow: "2px 2px 10px black",
+  },
 });
 
 function createData(name, calories, fat, carbs, protein) {
@@ -19,7 +22,7 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("username", 159, 6.0, 24, 4.0),
   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
   createData("Eclair", 262, 16.0, 24, 6.0),
   createData("Cupcake", 305, 3.7, 67, 4.3),
@@ -30,15 +33,15 @@ export default function Scoretable() {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer className={classes.tablecont} component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>UserName</TableCell>
+            <TableCell align="right">Drum Kit</TableCell>
+            <TableCell align="right">Whack-A-Mole</TableCell>
+            <TableCell align="right">HangMan</TableCell>
+            <TableCell align="right">Tic-Tac-Toe</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -47,10 +50,10 @@ export default function Scoretable() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="center">{row.calories}</TableCell>
+              <TableCell align="center">{row.fat}</TableCell>
+              <TableCell align="center">{row.carbs}</TableCell>
+              <TableCell align="center">{row.protein}</TableCell>
             </TableRow>
           ))}
         </TableBody>
