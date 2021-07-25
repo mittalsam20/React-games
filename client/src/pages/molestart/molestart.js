@@ -4,12 +4,14 @@ import Rightcont from "../../components/rightcont/rightcont";
 import "./molestart.css";
 
 const Molestart = () => {
+  const mole = useRef([]);
   const dirt = useRef([]);
   const [moledifficulty, setMoledifficulty] = useState("easy");
   const [lasthole, setLasthole] = useState(null);
+  const [up, setup] = useState(false);
   const noOfDirts =
     moledifficulty === "easy"
-      ? [1, 2, 3, 4, 5, 6, 7, 8]
+      ? [1, 2, 3, 4, 5, 6, 7, 8, 9]
       : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const randomtime = (min, max) => {
@@ -45,23 +47,34 @@ const Molestart = () => {
   const peep = () => {
     const time = randomtime(200, 1000);
     const hole = randomhole(dirt.current);
-    console.log(time, hole);
+    // console.log(time, hole);
+    console.log(randomhole(mole.current));
+    randomhole(mole.current).classList.add("diff");
+    // hole.classlist.add("up");
   };
 
   useEffect(() => {
     peep();
+    // setup(true);
   }, [moledifficulty]);
 
   return (
     <div className="mole-cont">
       <div className="mole-left">
         <Heading heading="WHACK-THE-MOLE" />
-        <div class="game">
+        <div className="game">
           {noOfDirts.map((ele, index) => {
             return (
               <>
-                <div class="hole hole1" ref={(x) => (dirt.current[ele] = x)}>
-                  <div class="mole"></div>
+                <div
+                  className="hole"
+                  id={index}
+                  ref={(x) => (dirt.current[ele] = x)}
+                >
+                  <div
+                    className={up ? "mole  diff" : "mole"}
+                    ref={(x) => (mole.current[ele] = x)}
+                  ></div>
                 </div>
               </>
             );
