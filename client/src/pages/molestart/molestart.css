@@ -2,21 +2,9 @@
     background: #ffc600;
     height: 100vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     overflow-y: hidden;
     overflow-x: hidden;
-}
-
-.alldirt {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.dirtsvg {
-    width: 16.5%;
-    margin: 20px;
-    margin-right: 50px;
-    margin-top: 100px;
 }
 
 .mole-left {
@@ -25,6 +13,46 @@
 }
 
 .mole-settings {
-    width: 50vw;
+    width: 40vw;
     background-color: red;
+}
+
+.game {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.hole {
+    flex: 1 0 33.33%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hole:after {
+    display: block;
+    background: url(dirt.svg) bottom center no-repeat;
+    background-size: contain;
+    content: '';
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    z-index: 2;
+    bottom: -30px;
+}
+
+.mole {
+    background: url('mole.svg') bottom center no-repeat;
+    background-size: 60%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s;
+}
+
+.hole.up .mole {
+    top: 0;
 }

@@ -2,14 +2,15 @@ import { useState, useRef, useEffect } from "react";
 import Heading from "../../components/heading";
 import Rightcont from "../../components/rightcont/rightcont";
 import "./molestart.css";
+
 const Molestart = () => {
   const dirt = useRef([]);
   const [moledifficulty, setMoledifficulty] = useState("easy");
   const [lasthole, setLasthole] = useState(null);
   const noOfDirts =
     moledifficulty === "easy"
-      ? [1, 2, 3, 4, 5, 6, 7, 8, 9]
-      : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+      ? [1, 2, 3, 4, 5, 6, 7, 8]
+      : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const randomtime = (min, max) => {
     return Math.round(Math.random() * (max - min) + min);
@@ -55,17 +56,13 @@ const Molestart = () => {
     <div className="mole-cont">
       <div className="mole-left">
         <Heading heading="WHACK-THE-MOLE" />
-        <div className="alldirt">
+        <div class="game">
           {noOfDirts.map((ele, index) => {
-            if (index === 4 || index === 9) return <br />;
             return (
               <>
-                <img
-                  src="images/mole/dirt.svg"
-                  alt={`${index}_dirt`}
-                  className="dirtsvg"
-                  ref={(x) => (dirt.current[ele] = x)}
-                />
+                <div class="hole hole1" ref={(x) => (dirt.current[ele] = x)}>
+                  <div class="mole"></div>
+                </div>
               </>
             );
           })}
